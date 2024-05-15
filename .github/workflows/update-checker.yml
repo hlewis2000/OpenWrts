@@ -8,7 +8,7 @@ env:
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 16 */5 * ?'
+    - cron: '0 16 */5 * *'
 
 jobs:
   check:
@@ -42,9 +42,8 @@ jobs:
         event-type: Source Code Update
 
     - name: Delete workflow runs
-      uses: GitRML/delete-workflow-runs@main
+      uses: bigbugcc/delete-workflow-runs@main
       with:
-        retain_days: 1
         keep_minimum_runs: 1
 
     - name: Remove old Releases
